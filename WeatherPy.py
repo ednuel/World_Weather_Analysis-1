@@ -42,11 +42,46 @@ basic_url = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID
 print('Beginning Data Retrieval     ')
 print("-----------------------------")
 
-# use enumerate() method to loop and build URL
+# use enumerate() method to loop index and item simutanously 
 for i, item in enumerate(cities):
-    
+    if i % 50 == 0 and i != 0 :
+        record_count = 1  # initialize at every beginning of set
+        set_count +=1 # increment set count
+    # build URL for API call
+    url = basic_url + '&q=' + item
+    # Log the URL, record, and set numbers and the city.
+    print(f'Processing Record {record_count} of Set {set_count} | {item}')
+    # increment record count
+    record_count +=1
+
+    try: 
+        js = requests.get(url).json()
+        city_name = item
+        city_country = js['sys']['country']
+        city_UTCdate = js['dt']
+        city_date = datetime.utcfromtimestamp(city_UTCdate).strftime('%Y-%m-%d %H:%M:%S')
+        city_lat = js['coord']['lat']
+        city_lon = js['coord']['lon']
+        city_max_temp = js['main']['temp_max']
+        city_humidity = js['main']['humidity']
+        city_cload = js['clouds']['all']
+        city_wind_speed = js['wind']['speed']
+        # append as a list of dictionaries
+        city_data.append({'City':city_name, 'Coounty':city_country, 'Date':city_date, 
+                        'Lat':city_lat, 'Lng': city_lon,'Max Temp':city_max_temp,
+                        'Humidity':city_humidity,'Cloudiness': city_cload,'Wind Speed':city_wind_speed})
+    except:
+        print("City not found. Skipping...")
+        pass
+
+# Indicate that Data Loading is complete
+print('-------------------------------')
+print('Data Retrieval Complete        ')
+print('-------------------------------')
 
 
 
 
+# %%
+print(len(city_data))
 # %%
