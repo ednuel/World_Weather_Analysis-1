@@ -2,7 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+# adding config.py file
+config.py
+# adding other practice files
+practice.py
 # C extensions
 *.so
 
@@ -26,7 +29,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
+# .DS-store desktop service
+.DS_store
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
