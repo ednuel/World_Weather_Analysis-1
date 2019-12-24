@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import requests
 from config import weather_api_key
 from datetime import datetime
-
+import time
 # %%
 # generate 1500 random latitude and longitude data as a list of tuples
 lats = np.random.uniform(-90.0,90.0,size=1500)
@@ -29,7 +29,6 @@ for coor in coordinates:
 print(cities[:10], 'Generate', len(cities))
 
 # %%
-# loop through city names, 
 # use OpenWeather API to request, get, parse JSON to retrieve weather data for each city.
 
 # initial counters for log and sets
@@ -88,5 +87,29 @@ unmod_city_data_df = pd.DataFrame(city_data)
 city_data_df = unmod_city_data_df.rename(columns={'Coounty': 'Country'})
 city_data_df.head()
 city_data_df.to_csv(path_or_buf='weather_data/cities.csv', index_label='City_ID')
+
+# %%
+# scatter plots, showcase weather parameter changing by latitude
+# extract relevant fields(columns) as Series
+lats_Series = city_data_df['Lat']
+max_temp_Series = city_data_df['Max Temp']
+humidity_Series = city_data_df['Humidity']
+cloud_Series = city_data_df['Cloudiness']
+wind_speed_Series = city_data_df['Wind Speed']
+
+#show today's datetime in fig label
+today = time.strftime('%x')
+# %%
+# build the scatter plot for lat vs. Max Temp.
+fig = plt.figure()
+plt.scatter(lats_Series,max_temp_Series, 
+            alpha=0.8, edgecolors='k', linewidths=1,marker='o', label='Cities' )
+plt.title(f"City Latitude vs. Max Temperature " + today)
+plt.xlabel("Latitude")
+plt.ylabel('Max Temperature (F)')
+plt.grid()
+plt.savefig('weather_data/Fig1.png')
+
+plt.show()
 
 # %%
