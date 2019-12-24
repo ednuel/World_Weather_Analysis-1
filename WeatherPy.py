@@ -79,9 +79,14 @@ print('-------------------------------')
 print('Data Retrieval Complete        ')
 print('-------------------------------')
 
-
-
+print(len(city_data))
 
 # %%
-print(len(city_data))
+# convert the list of dictionaries into DataFrame, and export to .csv file
+
+unmod_city_data_df = pd.DataFrame(city_data)
+city_data_df = unmod_city_data_df.rename(columns={'Coounty': 'Country'})
+city_data_df.head()
+city_data_df.to_csv(path_or_buf='weather_data/cities.csv', index_label='City_ID')
+
 # %%
