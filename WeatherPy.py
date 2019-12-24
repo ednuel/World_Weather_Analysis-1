@@ -89,7 +89,7 @@ city_data_df.head()
 city_data_df.to_csv(path_or_buf='weather_data/cities.csv', index_label='City_ID')
 
 # %%
-# scatter plots, showcase weather parameter changing by latitude
+# 4 scatter plots, showcase weather parameter changing by latitude
 # extract relevant fields(columns) as Series
 lats_Series = city_data_df['Lat']
 max_temp_Series = city_data_df['Max Temp']
@@ -100,7 +100,7 @@ wind_speed_Series = city_data_df['Wind Speed']
 #show today's datetime in fig label
 today = time.strftime('%x')
 # %%
-# build the scatter plot for lat vs. Max Temp.
+# build the 1st scatter plot for lat vs. Max Temp.
 fig = plt.figure()
 plt.scatter(lats_Series,max_temp_Series, 
             alpha=0.8, edgecolors='k', linewidths=1,marker='o', label='Cities' )
@@ -109,7 +109,43 @@ plt.xlabel("Latitude")
 plt.ylabel('Max Temperature (F)')
 plt.grid()
 plt.savefig('weather_data/Fig1.png')
+plt.show()
 
+# %%
+# build the 2nd scatter plot for lat vs. Humidity.
+fig = plt.figure()
+plt.scatter(lats_Series,humidity_Series, 
+            alpha=0.8, edgecolors='k', linewidths=1,marker='o', label='Cities' )
+plt.title(f"City Latitude vs. Humidity " + today)
+plt.xlabel("Latitude")
+plt.ylabel('Humidity (%)')
+plt.grid()
+plt.savefig('weather_data/Fig2.png')
+#plt.legend()
+plt.show()
+
+# %%
+# build the 3rd scatter plot for lat vs. Cloudiness.
+fig = plt.figure()
+plt.scatter(lats_Series,cloud_Series, 
+            alpha=0.8, edgecolors='k', linewidths=1,marker='o', label='Cities' )
+plt.title(f"City Latitude vs. Cloudiness (%) " + today)
+plt.xlabel("Latitude")
+plt.ylabel('Cloudiness (%)')
+plt.grid()
+plt.savefig('weather_data/Fig3.png')
+plt.show()
+
+# %%
+# build the 4th scatter plot for lat vs. Wind Speed.
+fig = plt.figure()
+plt.scatter(lats_Series,wind_speed_Series, 
+            alpha=0.8, edgecolors='k', linewidths=1,marker='o', label='Cities' )
+plt.title(f"City Latitude vs. Wind Speed " + today)
+plt.xlabel("Latitude")
+plt.ylabel('Wind Speed (mph)')
+plt.grid()
+plt.savefig('weather_data/Fig4.png')
 plt.show()
 
 # %%
