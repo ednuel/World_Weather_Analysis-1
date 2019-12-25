@@ -9,6 +9,7 @@ import requests
 from config import weather_api_key
 from datetime import datetime
 import time
+from scipy.stats import linregress
 # %%
 # generate 1500 random latitude and longitude data as a list of tuples
 lats = np.random.uniform(-90.0,90.0,size=1500)
@@ -136,6 +137,7 @@ plt.grid()
 plt.savefig('weather_data/Fig3.png')
 plt.show()
 
+
 # %%
 # build the 4th scatter plot for lat vs. Wind Speed.
 fig = plt.figure()
@@ -148,4 +150,37 @@ plt.grid()
 plt.savefig('weather_data/Fig4.png')
 plt.show()
 
+# %% [markdown]
+# create a funtion with 5 variables, returns a combine plot of regree line and scatter
+# Main process: 
+# 1. retrieve 5 stats info by linregress() method 
+# 2. use slope and alpha to get regression equation
+# 3. list comprehension method to get each Y_expected value(in reg line) based by x_value
+# 4. draw plot and scatter in same figure
+# %%
+def plot_linear_function(x_values, y_values,title, y_label, text_coordinates):
+    (slope, intercept, r_value, p_value, std_err) = linregress(x_values,y_values)
+    #step 2: Get the equation of the line. and R, P values
+    line_eq_str = "y = " + str(round(slope,2)) + "x + " + str(round(intercept,2))
+    correl_str = str(round(r_value,2))
+    stderror_str = str(round(std_err,2))
+    #step 3: Calculate the regression line "y values" from the slope and intercept.
+    regress_Y_values =[(x * slope + intercept) for x in x_values]
+    #step 4:Create a scatter plot and plot the regression line.
+    plt.scatter(x_values,y_values)
+    plt.plot(x_values,regress_Y_values, color = 'r')
+    plt.annotate(line_eq_str,text_coordinates, fontsize =15, color = 'red')
+    plt.xlabel('Latitude')
+    plt.ylabel(y_label)
+    plt.title(title)
+
+    plt.show()
+# %%
+# seperate northern and southern hemisphere latitude
+northern_hemi_df = city_data_df.loc[(city_data_df['Lat'] >= 0),:]
+
+southern_hemi_df = city_data_df.loc[(city_data_df['Lat'] < 0),:]
+
+northern_hemi_df.count()
+southern_hemi_df.count()
 # %%
