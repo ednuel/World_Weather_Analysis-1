@@ -163,18 +163,19 @@ def plot_linear_function(x_values, y_values,title, y_label, text_coordinates):
     #step 2: Get the equation of the line. and R, P values
     line_eq_str = "y = " + str(round(slope,2)) + "x + " + str(round(intercept,2))
     correl_str = str(round(r_value,2))
-    stderror_str = str(round(std_err,2))
+    pvalue_str = str(p_value)
     #step 3: Calculate the regression line "y values" from the slope and intercept.
     regress_Y_values =[(x * slope + intercept) for x in x_values]
     #step 4:Create a scatter plot and plot the regression line.
     plt.scatter(x_values,y_values)
     plt.plot(x_values,regress_Y_values, color = 'r')
-    plt.annotate(line_eq_str,text_coordinates, fontsize =15, color = 'red')
+    plt.annotate(line_eq_str,xy= text_coordinates, fontsize =15, color = 'red')
     plt.xlabel('Latitude')
     plt.ylabel(y_label)
     plt.title(title)
 
     plt.show()
+    print(f'R_value is {correl_str}, and P_value is {pvalue_str}')
 # %%
 # seperate northern and southern hemisphere latitude
 northern_hemi_df = city_data_df.loc[(city_data_df['Lat'] >= 0),:]
@@ -183,4 +184,99 @@ southern_hemi_df = city_data_df.loc[(city_data_df['Lat'] < 0),:]
 
 northern_hemi_df.count()
 southern_hemi_df.count()
+# %%
+# build the Northern hemisphere regression line and scatter plot for lat vs. Max Temp.
+N_max_temp_x_Series = northern_hemi_df['Lat']
+N_max_temp_y_Series = northern_hemi_df['Max Temp']
+# call function: plot_linear_function 
+plot_linear_function(N_max_temp_x_Series, 
+                N_max_temp_y_Series, 
+                'Linear Regression on the Northern Humisphere \n for Maximun Temperature',
+                'Max Temp', (10,-40))
+plt.savefig('weather_data/Regress_fig1.png')
+plt.show()
+# %%
+# build the Southern hemisphere regression line and scatter plot for lat vs. Max Temp.
+S_max_temp_x_Series = southern_hemi_df['Lat']
+S_max_temp_y_Series = southern_hemi_df['Max Temp']
+# call function: plot_linear_function 
+plot_linear_function(S_max_temp_x_Series, 
+                S_max_temp_y_Series, 
+                '''Linear Regression on the Southern Humisphere 
+                \n for Maximun Temperature''',
+                'Max Temp', (-50,90))
+plt.savefig('weather_data/Regress_fig2.png')
+plt.show()
+# %%
+# build the Northern hemisphere regression line and scatter plot for lat vs. Humidity.
+N_humidity_x_Series = northern_hemi_df['Lat']
+N_humidity_y_Series = northern_hemi_df['Humidity']
+# call function: plot_linear_function 
+plot_linear_function(N_humidity_x_Series, 
+                N_humidity_y_Series, 
+                'Linear Regression on the Northern Humisphere \n for % Humidity',
+                '% Humidity', (50,15))
+plt.savefig('weather_data/Regress_fig3.png')
+plt.show()
+
+# %%
+# build the Southern hemisphere regression line and scatter plot for lat vs. Humidity.
+S_humidity_x_Series = southern_hemi_df['Lat']
+S_humidity_y_Series = southern_hemi_df['Humidity']
+# call function: plot_linear_function 
+plot_linear_function(S_humidity_x_Series, 
+                S_humidity_y_Series, 
+                'Linear Regression on the Southern Humisphere \n for % Humidity',
+                '% Humidity', (-55,10))
+plt.savefig('weather_data/Regress_fig4.png')
+plt.show()
+
+# %%
+# build the Northern hemisphere regression line and scatter plot for lat vs. Cloudiness.
+N_Cloudiness_x_Series = northern_hemi_df['Lat']
+N_Cloudiness_y_Series = northern_hemi_df['Cloudiness']
+# call function: plot_linear_function 
+plot_linear_function(N_Cloudiness_x_Series, 
+                N_Cloudiness_y_Series, 
+                'Linear Regression on the Northern Humisphere \n for % Cloudiness',
+                '% Cloudiness', (10,50))
+plt.savefig('weather_data/Regress_fig5.png')
+plt.show()
+
+# %%
+# build the Southern hemisphere regression line and scatter plot for lat vs. Cloudiness.
+S_Cloudiness_x_Series = southern_hemi_df['Lat']
+S_Cloudiness_y_Series = southern_hemi_df['Cloudiness']
+# call function: plot_linear_function 
+plot_linear_function(S_Cloudiness_x_Series, 
+                S_Cloudiness_y_Series, 
+                'Linear Regression on the Southern Humisphere \n for % Cloudiness',
+                '% Cloudiness', (-55,50))
+plt.savefig('weather_data/Regress_fig6.png')
+plt.show()
+
+# %%
+# build the Northern hemisphere regression line and scatter plot for lat vs. Wind Speed.
+N_WindSpeed_x_Series = northern_hemi_df['Lat']
+N_WindSpeed_y_Series = northern_hemi_df['Wind Speed']
+# call function: plot_linear_function 
+plot_linear_function(N_WindSpeed_x_Series, 
+                N_WindSpeed_y_Series, 
+                'Linear Regression on the Northern Humisphere \n for Wind Speed',
+                'Wind Speed', (40,35))
+plt.savefig('weather_data/Regress_fig7.png')
+plt.show()
+
+# %%
+# build the Southern hemisphere regression line and scatter plot for lat vs. Wind Speed.
+S_WindSpeed_x_Series = southern_hemi_df['Lat']
+S_WindSpeed_y_Series = southern_hemi_df['Wind Speed']
+# call function: plot_linear_function 
+plot_linear_function(S_WindSpeed_x_Series, 
+                S_WindSpeed_y_Series, 
+                'Linear Regression on the Southern Humisphere \n for Wind Speed',
+                'Wind Speed', (-50,20))
+plt.savefig('weather_data/Regress_fig8.png')
+plt.show()
+
 # %%
