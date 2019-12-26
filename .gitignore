@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 # adding config.py file
 config.py
+config_gmaps.py
 # adding other practice files
 practice.py
 # C extensions
