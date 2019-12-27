@@ -174,7 +174,7 @@ def plot_linear_function(x_values, y_values,title, y_label, text_coordinates):
     plt.ylabel(y_label)
     plt.title(title)
 
-    plt.show()
+    #plt.show()
     print(f'R_value is {correl_str}, and P_value is {pvalue_str}')
 # %%
 # seperate northern and southern hemisphere latitude
