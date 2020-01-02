@@ -61,14 +61,19 @@ and [Hotel_DataFrame.png](/filtered_Hotel_DataFrame.PNG)
 
 ## Statistical Conclusion
 
-1. Latitude versus temperature
+1. **Latitude versus temperature**
 ![Fig1.png](/weather_data/Fig1.png) ![Northern Humisphere](/weather_data/Regress_fig1.png) ![Southern Humisphere](/weather_data/Regress_fig2.png)
 
-2. Latitude versus humidity
+2. **Latitude versus humidity**
+
 ![Fig2.png](/weather_data/Fig2.png) [Northern Humisphere Linear Regression](/weather_data/Regress_fig3.png) as well as [Southern Humisphere Linear Regression](/weather_data/Regress_fig4.png)
-3. Latitude versus cloudiness
+
+3. **Latitude versus cloudiness**
+
 ![Fig3.png](/weather_data/Fig3.png) [Northern Humisphere Linear Regression](/weather_data/Regress_fig5.png) as well as [Southern Humisphere Linear Regression](/weather_data/Regress_fig6.png)
-4. Latitude versus wind speed
+
+4. **Latitude versus wind speed**
+
 ![Fig4.png](/weather_data/Fig4.png) [Northern Humisphere Linear Regression](/weather_data/Regress_fig7.png) [Southern Humisphere Linear Regression](/weather_data/Regress_fig8.png)
 
 **In conclusion, the correlation between the latitude and Max Temperature is strong because the r-value is more than 0.7 (Southern humisphere) and less than -0.7 (Northern humisphere) for the plots shown here. This means that max temperature is predictable and equator has highest temperature.**
