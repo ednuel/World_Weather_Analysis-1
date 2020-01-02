@@ -1,7 +1,6 @@
 # World_Weather_Analysis
 Use google maps API and OpenWeather API to create heatmaps and pop-up location markers for hotels within a certain radius of the cities where our customers travel.
 ## Basic Project Plan
-Here’s an outline of your project plan:
 
 1. Task: Collect and analyze weather data across cities worldwide.
 2. Purpose: Use the data to recommend ideal hotels based on clients’ weather preferences.
@@ -17,7 +16,7 @@ Here’s an outline of your project plan:
 
 - Use the *OpenWeatherMap API* to request the current weather data from each unique city.
 
-- Parse the JSON data from the API request.
+- Parse the *JSON* data from the API request.
 
 
 2. Exploratory Analysis with Visualization
@@ -32,11 +31,11 @@ Create a heatmap with pop-up markers that can display information on specific ci
 
 ## Statistical Conclusion
 
-    1. Latitude versus temperature![Fig1.png](/weather_data/Fig1.png) ![Northern Humisphere](/weather_data/Regress_fig1.png) ![Southern Humisphere](/weather_data/Regress_fig2.png)
+1. Latitude versus temperature![Fig1.png](/weather_data/Fig1.png) ![Northern Humisphere](/weather_data/Regress_fig1.png) ![Southern Humisphere](/weather_data/Regress_fig2.png)
 
-    2. Latitude versus humidity![Fig2.png](/weather_data/Fig2.png) [Northern Humisphere](/weather_data/Regress_fig3.png) [Southern Humisphere](/weather_data/Regress_fig4.png)
-    3. Latitude versus cloudiness![Fig3.png](/weather_data/Fig3.png) [Northern Humisphere](/weather_data/Regress_fig5.png) [Southern Humisphere](/weather_data/Regress_fig6.png)
-    4. Latitude versus wind speed![Fig4.png](/weather_data/Fig4.png) [Northern Humisphere](/weather_data/Regress_fig7.png) [Southern Humisphere](/weather_data/Regress_fig8.png)
+2. Latitude versus humidity![Fig2.png](/weather_data/Fig2.png) [Northern Humisphere](/weather_data/Regress_fig3.png) [Southern Humisphere](/weather_data/Regress_fig4.png)
+3. Latitude versus cloudiness![Fig3.png](/weather_data/Fig3.png) [Northern Humisphere](/weather_data/Regress_fig5.png) [Southern Humisphere](/weather_data/Regress_fig6.png)
+4. Latitude versus wind speed![Fig4.png](/weather_data/Fig4.png) [Northern Humisphere](/weather_data/Regress_fig7.png) [Southern Humisphere](/weather_data/Regress_fig8.png)
 
 **In conclusion, the correlation between the latitude and Max Temperature is strong because the r-value is more than 0.7 (Southern humisphere) and less than -0.7 (Northern humisphere) for the plots shown here. This means that max temperature is predictable and equator has highest temperature.**
 **Besides the max temperature, the correlation between the latitude and humidity, cloudiness and wind speed are low, which means those weather metrics are not predicted by latitude**
@@ -55,11 +54,11 @@ Add the amount of rainfall or snowfall within the last three hours so that custo
 
 2. Have Customers Narrow Their Travel Searches Based on Temperature and Precipitation.
 [WeatherPy_vacation.csv](/data/WeatherPy_vacation.csv)
-[Hotel_DataFrame](/filtered_Hotel_DataFrame.PNG)
+and [Hotel_DataFrame.png](/filtered_Hotel_DataFrame.PNG)
 
-- Google marker layer map ![WeatherPy_vacation_map.png.png](/image/WeatherPy_vacation_map.png.png)
+- Google marker_layer map ![WeatherPy_vacation_map.png.png](/image/WeatherPy_vacation_map.png.png)
 
-- Google pop-up box marker layer map ![vacation_pop-up_Map.PNG](/image/vacation_pop-up_Map.PNG)
+- Google pop-up box marker_layer map ![vacation_pop-up_Map.PNG](/image/vacation_pop-up_Map.PNG)
 
 3. Create a Travel Itinerary with a Corresponding Map.
 
