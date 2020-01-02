@@ -59,6 +59,8 @@ Add the amount of rainfall or snowfall within the last three hours so that custo
 
 **3. Create a Travel Itinerary with a Corresponding Map.**
 
+- Jupyter Notebook: [Vacation_Itinerary.ipynb](/Vacation_Itinerary.ipynb)
+
 - The route between four cities from the customer’s possible travel destinations:
 ![WeatherPy_travel_map.PNG](/image/WeatherPy_travel_map.PNG)
 
