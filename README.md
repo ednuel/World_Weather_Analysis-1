@@ -49,7 +49,7 @@ Add the amount of rainfall or snowfall within the last three hours so that custo
 
 - Jupyter Notebook: [Vacation_Search.ipynb](/Vacation_Search.ipynb)
 
-- Result csv file: [WeatherPy_vacation.csv](/data/WeatherPy_vacation.csv)
+- Result csv file: [WeatherPy_vacation.csv](/data/weatherPy_vacation.csv)
 
 - Result dataframe screenshot: [Hotel_DataFrame.png](/filtered_Hotel_DataFrame.PNG)
 
@@ -82,5 +82,5 @@ Add the amount of rainfall or snowfall within the last three hours so that custo
 ![Fig4.png](/weather_data/Fig4.png) [Northern Humisphere Linear Regression](/weather_data/Regress_fig7.png) [Southern Humisphere Linear Regression](/weather_data/Regress_fig8.png)
 
 **In conclusion, the correlation between the latitude and Max Temperature is strong because the r-value is more than 0.7 (Southern humisphere) and less than -0.7 (Northern humisphere) for the plots shown here. This means that max temperature is predictable and equator has highest temperature.**
-**Besides the max temperature, the correlation between the latitude and humidity, cloudiness and wind speed are low, which means those weather metrics are not predicted by latitude changing**
+**Besides the max temperature, the correlation between the latitude and humidity, cloudiness and wind speed are weak, which means those weather metrics are not predicted by latitude changing**
 
